@@ -12,18 +12,21 @@ class SystemManager {
     }
 }
 
-interface Order{
+Abstract class Order{
+    long quantity;
     processPayment();
 }
 
-class StandardOrder implements Order{
+class StandardOrder extends Order{
+    @Override
     processPayment(){
         //Proccess the payment
         return true;
     }
 }
 
-class ExpressOrder implements Order{
+class ExpressOrder extends Order{
+    @Override
     processPayment(){
         //Proccess the payment
         return true;
