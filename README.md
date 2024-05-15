@@ -9,14 +9,15 @@ Se marcan todas las violacionas a los principios SOLID
 ### Task 2 & 3
 
 ### Refactorización en la clase Order
-Se crea una interface para Order y se hacen implementaciones para ExpressOrder y StandardOrder, cada uno con su processPayment correspondiente, debido a que el código original ambos devolvían un true, simplemente devuelve un true, pero añadí como comentario que ahí debería de haber cierta lógica distinta para cada processPayment en cada Order.
+Se crea una clase abstracta para Order y se hacen extensiones para ExpressOrder y StandardOrder, cada uno con su processPayment correspondiente, debido a que el código original ambos devolvían un true, simplemente devuelve un true, pero añadí como comentario que ahí debería de haber cierta lógica distinta para cada processPayment en cada Order.
 
 Se aplican los siguientes principios SOLID:
-- LSP: Al colocar una interface el método processOrder puede procesar todo tipo de Orders.
+- LSP: Al colocar una clase abstracta el método processOrder puede procesar todo tipo de Orders.
 - OCP: Se pueden añadir más orders, pero los orders que ya existen no se modifican en caso de que se añadan más.
-- DIP: El método processOrder utiliza la interace Order y una específica.
+- DIP: Se utiliza una Order en el método de SystemManager y no una extensión como ExpressOrder o StandardOrder
 - ISP: Al dividir en dos clases StandardOrder y ExpressOrder no obligamos a la otra clase a implementar otro tipo de procesamiento de pago.
-<img width="459" alt="image" src="https://github.com/IvanG-G/lab2-solid-principles/assets/138608967/6cafffc9-9ef0-4ee3-b3f3-37de3fadf0ad">
+<img width="492" alt="image" src="https://github.com/IvanG-G/lab2-solid-principles/assets/138608967/f48366e4-01a2-4bef-9141-57d21cc7da82">
+
 
 
 ### Refactorización en el método verifyInventory
